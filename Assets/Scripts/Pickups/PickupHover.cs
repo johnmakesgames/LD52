@@ -15,6 +15,6 @@ public class PickupHover : MonoBehaviour
     void Update()
     {
         //this.transform.position = new Vector3(this.transform.position.x, startY + Mathf.Sin(Time.realtimeSinceStartup)/10, this.transform.position.z);
-        this.transform.Rotate(new Vector3(0, 10 * Time.deltaTime, 0));
+        this.transform.Rotate(new Vector3(0, 20 * Time.deltaTime, 0));
     }
 }

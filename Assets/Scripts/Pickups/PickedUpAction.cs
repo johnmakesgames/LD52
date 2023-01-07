@@ -2,13 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Items
-{
-    Unknown = 0,
-    Shovel,
-}
-
-
 public class PickedUpAction : MonoBehaviour
 {
     public Items itemType;
@@ -44,9 +37,9 @@ public class PickedUpAction : MonoBehaviour
         switch (itemType)
         {
             case Items.Shovel:
-                playerInfo.HoldingShovel = true;
+                playerInfo.CurrentHoldingItem = itemType;
                 break;
-            case Items.Unknown:
+            case Items.Nothing:
             default:
                 Debug.LogError("Unknown Item Pickup Action");
                 break;

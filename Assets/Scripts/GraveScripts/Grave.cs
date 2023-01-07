@@ -31,7 +31,7 @@ public class Grave : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                if (playerInfo.InRangeOfGrave && playerInfo.HoldingShovel)
+                if (playerInfo.InRangeOfGrave && playerInfo.CurrentHoldingItem == Items.Shovel)
                 {
                     Destroy(dirtPileCapsule);
                     dug = true;
