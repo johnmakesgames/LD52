@@ -25,26 +25,16 @@ public class PickedUpAction : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.E))
         {
-            if (pickupTrigger.PlayerInPickupZone)
+            if (pickupTrigger.PlayerInPickupZone && playerInfo.CurrentHoldingItem == Items.Nothing)
             {
                 OnPickedUp();
-            }
+            } 
         }
     }
 
     public void OnPickedUp()
     {
-        switch (itemType)
-        {
-            case Items.Shovel:
-                playerInfo.CurrentHoldingItem = itemType;
-                break;
-            case Items.Nothing:
-            default:
-                Debug.LogError("Unknown Item Pickup Action");
-                break;
-        }
-
+        playerInfo.CurrentHoldingItem = itemType;
         Destroy(this.gameObject);
     }
 }

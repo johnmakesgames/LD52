@@ -8,7 +8,7 @@ public class PickupTriggerZone : MonoBehaviour
 
     private void Start()
     {
-        PlayerInPickupZone = true;
+        PlayerInPickupZone = false;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -7,7 +7,11 @@ public class Grave : MonoBehaviour
     PlayerInfo playerInfo = null;
     public GameObject itemSpawnLocation;
     public GameObject dirtPileCapsule;
+    public GraveDetectionZone digTriggerZone;
     private bool dug;
+
+    public GameObject[] spawnableObjects;
+    public int guaranteedSpawn = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -31,10 +35,11 @@ public class Grave : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                if (playerInfo.InRangeOfGrave && playerInfo.CurrentHoldingItem == Items.Shovel)
+                if (digTriggerZone.InRangeOfGrave && playerInfo.CurrentHoldingItem == Items.Shovel)
                 {
                     Destroy(dirtPileCapsule);
                     dug = true;
+                    ObjectiveStatic.ObjectivesStatic?.SignalGraveDug();
                     SpawnLootItem();
                 }
             }
@@ -43,6 +48,13 @@ public class Grave : MonoBehaviour
 
     void SpawnLootItem()
     {
+        int itemToSpawn = guaranteedSpawn;
+        if (guaranteedSpawn == -1)
+        {
+            itemToSpawn = Random.Range(0, spawnableObjects.Length);
+        }
 
+        GameObject instantiated = Instantiate(spawnableObjects[itemToSpawn], itemSpawnLocation.transform.position, Quaternion.identity);
+        instantiated.GetComponent<Rigidbody>().AddForce(Vector3.up * 3, ForceMode.Impulse);
     }
 }
