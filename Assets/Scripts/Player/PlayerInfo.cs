@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum Items
 {
@@ -20,6 +21,8 @@ public class PlayerInfo : MonoBehaviour
     public GameObject ringHeldItem;
     public GameObject cupHeldItem;
     public GameObject monkeyHeldItem;
+
+    public Text healthText;
 
     public int health;
 
@@ -84,5 +87,7 @@ public class PlayerInfo : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadScene("DeadMenu");
         }
+
+        healthText.text = $"HP: {health}";
     }
 }
