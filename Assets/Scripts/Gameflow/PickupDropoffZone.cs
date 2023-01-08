@@ -36,6 +36,21 @@ public class PickupDropoffZone : MonoBehaviour
         {
             if (ObjectiveStatic.ObjectivesStatic.IsGameComplete())
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                SceneManager.LoadScene("GameWonScene");
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            if (ObjectiveStatic.ObjectivesStatic.IsGameComplete())
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 SceneManager.LoadScene("GameWonScene");
             }
         }

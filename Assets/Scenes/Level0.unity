@@ -90675,6 +90675,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1709335540538285356, guid: e3d35c373a8f6b44ba8c906304e00a2a, type: 3}
+      propertyPath: cameraSensitivityX
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709335540538285356, guid: e3d35c373a8f6b44ba8c906304e00a2a, type: 3}
+      propertyPath: cameraSensitivityY
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1709335541187867054, guid: e3d35c373a8f6b44ba8c906304e00a2a, type: 3}
       propertyPath: m_Name
       value: PlayerContainer
