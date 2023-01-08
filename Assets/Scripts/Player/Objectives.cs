@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectiveStatic
 {
@@ -10,6 +11,7 @@ public class ObjectiveStatic
 
 public class Objectives : MonoBehaviour
 {
+
     private void Start()
     {
         ObjectiveStatic.ObjectivesStatic = this;
@@ -46,6 +48,9 @@ public class Objectives : MonoBehaviour
             chestPutInVanComplete = true;
             chestPutInVanStrikethrough.SetActive(true);
         }
+
+        harvestValue += 150;
+        UpdateHarvestValue();
     }
 
     public GameObject cupPutInVanStrikethrough;
@@ -57,6 +62,9 @@ public class Objectives : MonoBehaviour
             cupPutInVanComplete = true;
             cupPutInVanStrikethrough.SetActive(true);
         }
+
+        harvestValue += 25;
+        UpdateHarvestValue();
     }
 
     public GameObject ringPutInVanStrikethrough;
@@ -68,6 +76,9 @@ public class Objectives : MonoBehaviour
             ringPutInVanComplete = true;
             ringPutInVanStrikethrough.SetActive(true);
         }
+
+        harvestValue += 100;
+        UpdateHarvestValue();
     }
 
     public GameObject monkeyPutInVanStrikethrough;
@@ -79,6 +90,8 @@ public class Objectives : MonoBehaviour
             monkeyPutInVanComplete = true;
             monkeyPutInVanStrikethrough.SetActive(true);
         }
+        harvestValue += 130;
+        UpdateHarvestValue();
     }
 
     public bool IsGameComplete()
@@ -114,5 +127,13 @@ public class Objectives : MonoBehaviour
         }
 
         return true;
+    }
+
+
+    private float harvestValue = 0;
+    public Text harvestValueText;
+    public void UpdateHarvestValue()
+    {
+        harvestValueText.text = $"Harvest Value: ${harvestValue}";
     }
 }

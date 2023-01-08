@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum Items
 {
@@ -19,6 +20,8 @@ public class PlayerInfo : MonoBehaviour
     public GameObject ringHeldItem;
     public GameObject cupHeldItem;
     public GameObject monkeyHeldItem;
+
+    public int health;
 
     public bool InRangeOfGrave = false;
 
@@ -69,6 +72,17 @@ public class PlayerInfo : MonoBehaviour
             case Items.Nothing:
             default:
                 break;
+        }
+    }
+
+    public void DoDamage()
+    {
+        health--;
+        if (health <= 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            SceneManager.LoadScene("DeadMenu");
         }
     }
 }
